@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+          <div class="row">
+          <div class="col-xs-6">
+
+<form method="POST">
+{% csrf_token %}
+
+        <div class="field">
+	    {{ form.id.label }}
+            {{ form.name.label }}
+            {{ form.number.label }}
+
+            {{ form.id }}
+            {{ form.name }}
+            {{ form.number }}
+        </div>
+
+
+    <button class="btn btn-primary" type="submit" name="save">保存</button>
+</form>
+<form action="{% url 'index' %}">
+    <button class="btn btn-primary" type="submit" name="close">閉じる</button>
+</form>
+
+</div>
+{% endblock content %}
